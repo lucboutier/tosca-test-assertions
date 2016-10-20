@@ -1,0 +1,38 @@
+tosca_definitions_version: tosca_simple_yaml_1_0
+
+metadata:
+  oasis.testAssertion.id: 3.1.2-tosca_definitions_version-06-valid-definition
+  oasis.testAssertion.description: This is a dummy test for sample.
+  oasis.testAssertion.target: a tosca template that has a a node type.
+  oasis.testAssertion.predicate: >
+    When parsing the template
+    I should have no errors
+  oasis.testAssertion.prescription_level: mandatory
+  oasis.testAssertion.normativeSource.refSourceItem.documentId: tosca_simple_yaml_1_0
+  oasis.testAssertion.normativeSource.refSourceItem.versionId: 1.0.0
+  oasis.testAssertion.normativeSource.textSourceItem.section: 3.1.2
+  oasis.testAssertion.tags.conformancetarget: Parser-Validator
+  
+node_types:
+  tosca.test.nodes.My_Node:
+    derived_from: tosca.nodes.Root
+    version: 1.0.0
+    description: A sample node type for tests.
+    properties:
+      property:
+        type: string
+      other_property:
+        type: string
+    attributes:
+      attribute:
+        type: string
+      other_attribute:
+        type: string
+    requirements:
+      - some_database:
+          capability: tosca.capabilities.Endpoint.Database
+          node: tosca.nodes.Database
+    capabilities:
+    interfaces:
+      Standard:
+    artifacts:
